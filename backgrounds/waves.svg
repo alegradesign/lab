@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .wave1 {
+      stroke-dasharray: 40, 18;
+      stroke-dashoffset: 0;
+      animation: dash 10s linear infinite;
+      opacity: 0.9;
+      stroke-width: 4;
+    }
+    .wave2 {
+      stroke-dasharray: 60, 24;
+      stroke-dashoffset: 0;
+      animation: dash 16s linear infinite;
+      opacity: 0.6;
+      stroke-width: 4;
+    }
+    .wave3 {
+      stroke-dasharray: 80, 32;
+      stroke-dashoffset: 0;
+      animation: dash 22s linear infinite;
+      opacity: 0.4;
+      stroke-width: 4;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 1200;
+      }
+    }
+  </style>
+  <!-- Onda superior -->
+  <path class="wave1" d="M0,250 Q360,100 720,250 T1440,250" stroke="#0ee0c8" fill="none"/>
+  <!-- Onda media -->
+  <path class="wave2" d="M0,450 Q480,600 960,450 T1440,450" stroke="#0ee0c8" fill="none"/>
+  <!-- Onda inferior -->
+  <path class="wave3" d="M0,700 Q360,850 720,700 T1440,700" stroke="#0ee0c8" fill="none"/>
+</svg> 

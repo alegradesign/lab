@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,30 C15,15 35,45 50,15 S85,45 100,30" fill="none" stroke="#0ee0c8" stroke-width="0.4" />
+  <path d="M0,45 C15,30 35,60 50,30 S85,60 100,45" fill="none" stroke="#0ee0c8" stroke-width="0.4" />
+  <path d="M0,60 C15,45 35,75 50,45 S85,75 100,60" fill="none" stroke="#0ee0c8" stroke-width="0.4" />
+  <path d="M0,75 C15,60 35,90 50,60 S85,90 100,75" fill="none" stroke="#0ee0c8" stroke-width="0.4" />
+</svg> 

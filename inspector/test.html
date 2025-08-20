@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <meta name="llm-context" content="data/context.md">
+  <meta name="ai-context" content="data/context.md">
+  <link rel="context" href="data/context.md" type="text/markdown">
+  <meta name="description" content="Diagrama interactivo de secciones. Contexto completo en data/context.md">
+  <title>Inspector</title>
+  <link href="https://cdn.jsdelivr.net/gh/swanix/diagrams@v0.9.1/dist/xdiagrams.min.css" rel="stylesheet" />
+<style>
+   :root {
+    --color-base: 220 20%;
+    --app-bg: #353b47; 
+
+    --cluster-bg: #20232b !important;
+    --cluster-selected-bg: #4c5464 !important; 
+    --cluster-selected-stroke: hsl(var(--color-base) 65% / 0.8);
+    --cluster-hover-bg-zoom-out: hsl(170 70% 60% / 0.1);
+    --cluster-hover-stroke-zoom-out: hsl(170 100% 50% / 1);
+
+    --node-connector: hsl(var(--color-base) 65% / 1);
+    --node-name-text-color: hsl(var(--color-base) 15% / 1);
+    --title-pill-logo-filter: none;
+    --node-selection-focus: #1FCDB3;
+    --thumb-fill-focus: #1FCDB3;
+    --thumb-fill-hover: hsl(var(--color-base) 65% / 1);
+    --node-selection-selected: #dbfffa;
+
+    --cluster-hover-title-large-color: hsl(var(--color-base) 85% / 1);
+    --cluster-hover-title-large-bg-color: hsl(var(--color-base) 15% / 1);
+    --cluster-hover-title-large-border-color: #1FCDB3;      
+  }
+
+  .cluster-title {
+    fill: hsl(var(--color-base) 75% / 0.9);
+  }
+
+  .cluster-title-bg {
+    fill: hsl(var(--color-base) 10% / 0.5);
+  }
+
+  .floating-title-pill {
+    border-color:  hsl(var(--color-base) 30% / 1) !important;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+</style>
+</head>
+<body class="custom-theme">
+
+<div id="app"></div>
+
+<script>
+  window.$xDiagrams = {
+    url: "https://api.sheetbest.com/sheets/f4c2def0-403c-4197-8020-9f1c42e34515/tabs/All",
+    title: "Inspector",
+    clustersPerRow: "6 3 7 6 3",
+    showThemeToggle: false 
+  };
+</script>
+
+<script type="module" src="https://cdn.jsdelivr.net/gh/swanix/diagrams@v0.9.1/dist/xdiagrams.min.js"></script>
+
+</body>
+</html>

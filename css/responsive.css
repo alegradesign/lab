@@ -1,0 +1,86 @@
+/* Breakpoint para tablets y móviles */
+@media (max-width: 900px) {
+  .logo {
+    width: 400px;
+  }
+  .cta-btn {
+    font-size: 1.05rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    width: 300px;
+    max-width: 90vw;
+  }
+  .cta-btn {
+    font-size: 1.1rem;
+    padding: 1rem 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 90vw;
+    max-width: 400px;
+  }
+
+  .bg-controls {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.35rem;
+    gap: 0.35rem;
+  }
+
+  .bg-thumb {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .random-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .random-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 85vw;
+    max-width: 300px;
+  }
+
+  .cta-btn {
+    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+  }
+
+  .bg-controls {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.25rem;
+    gap: 0.25rem;
+  }
+
+  .bg-thumb {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+
+  .random-btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  .random-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+} 
