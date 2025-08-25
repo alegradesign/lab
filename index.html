@@ -2,84 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alegra Design Lab</title>
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <link rel="shortcut icon" href="/archive/img/favicon.ico">
-  <link rel="stylesheet" href="/archive/css/styles.css">
-  <script src="/archive/js/theme-manager.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="/archive/js/animated-backgrounds.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Template XDiagrams - Crea diagramas interactivos con APIs protegidas de forma rápida y segura">
+  <title>Alegra Design Labn</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link href="/assets/styles/app.css" rel="stylesheet">
+
 </head>
-<body>
-  <div class="background-container">
-    <!-- Fondo 1: Círculos concéntricos -->
-    <object class="animated-bg active" id="bg1" data="/archive/backgrounds/circles.svg" type="image/svg+xml"></object>
-    <!-- Fondo 2: Líneas diagonales -->
-    <object class="animated-bg hidden" id="bg2" data="/archive/backgrounds/diagonal.svg" type="image/svg+xml"></object>
-    <!-- Fondo 3: Imagen abstracta 1 -->
-    <img class="image-bg hidden" id="bg3" src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?w=1920&q=80" alt="Fondo abstracto 1" />
-    <!-- Fondo 4: Imagen abstracta 2 -->
-    <img class="image-bg hidden" id="bg4" src="https://images.unsplash.com/photo-1632059368252-be6d65abc4e2?w=1920&q=80" alt="Fondo abstracto 2" />
-    <!-- Fondo 5: Three.js Particles -->
-    <div class="three-bg hidden" id="bg5"></div>
-    <!-- Fondo 6: Three.js Esferas -->
-    <div class="three-bg hidden" id="bg6"></div>
-    <div class="background-overlay"></div>
-  </div>
-  <div class="content-container">
-    <img src="/archive/img/logo.svg" alt="Alegra Design Logo" class="logo" />
-    <a href="/login"><button class="cta-btn">Explore Projects</button></a>
-  </div>
-  
-  <div class="bg-controls">
-    <div class="bg-thumb active" data-type="Vector">1</div>
-    <div class="bg-thumb" data-type="Vector">2</div>
-    <div class="bg-thumb" data-type="Image">3</div>
-    <div class="bg-thumb" data-type="Image">4</div>
-    <div class="bg-thumb" data-type="3D">5</div>
-    <div class="bg-thumb" data-type="3D">6</div>
-    <button class="random-btn">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zM14.83 13.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
-      </svg>
-    </button>
+<body class="light-mode">
+  <!-- Loading spinner mientras verifica autenticación -->
+  <div id="loading-container" class="landing-loading-spinner">
+    <div class="landing-spinner"></div>
   </div>
 
-  <div class="theme-switch" onclick="document.getElementById('theme-toggle').click()">
-    <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M1 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M21 12H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <input type="checkbox" id="theme-toggle" style="display: none;">
+  <!-- Landing content (oculto inicialmente) -->
+  <div id="landing-container" class="landing-container" style="display: none;">
+    <!-- Header -->
+    <header class="landing-header">
+      <a href="/" class="landing-logo">Alegra Design Lab</a>
+      <div class="landing-nav-buttons">
+        <a href="/login" class="cta-primary">Iniciar Sesión</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Proyectos Experimentales</h1>
+        <p class="hero-subtitle">
+          Laboratorio de creación
+        </p>
+        <div class="cta-buttons">
+          <a href="/login" class="cta-primary">🚀 Comenzar Ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="landing-footer-links">
+        <a href="https://sheetbest.com/" class="landing-footer-link">SheetBest</a>
+        <a href="https://netlify.com" class="landing-footer-link">Netlify</a>
+        <a href="https://auth0.com" class="landing-footer-link">Auth0</a>
+      </div>
+    </footer>
   </div>
+
+  <!-- Cargar configuración de auth y sistemas modulares -->
+  <script src="/auth/assets/auth-config.js"></script>
+  <script src="/auth/assets/auth-checker.js"></script>
+  <script src="/assets/js/landing-manager.js"></script>
 
   <script>
-    // Inicializar el gestor de tema y los fondos animados
-    document.addEventListener('DOMContentLoaded', () => {
-      new ThemeManager({
-        themeToggleSelector: '#theme-toggle',
-        themeAttr: 'data-theme',
-        storageKey: 'theme',
-        defaultTheme: 'light'
-      });
-      new AnimatedBackgrounds({
-        container: '.background-container',
-        controls: '.bg-controls',
-        defaultBg: 1,
-        totalBgs: 6
-      });
+    // Inicializar landing manager global
+    window.landingManager = initLandingManager();
+
+    // Inicializar cuando la página cargue
+    window.addEventListener('load', () => {
+      // Asegurar que el body tenga scroll normal
+      document.body.style.overflow = 'auto';
+      
+      // Cargar tema usando el manager
+      loadTheme();
+      
+      // Usar el sistema modularizado de verificación de autenticación
+      checkAuthForLanding();
+      
+      // Configurar timeout de seguridad usando el manager
+      setupSafetyTimeout();
     });
   </script>
 </body>
