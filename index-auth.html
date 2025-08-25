@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Template XDiagrams - Crea diagramas interactivos con APIs protegidas de forma rápida y segura">
+  <title>App Template - Secure authentication</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link href="/assets/styles/app.css" rel="stylesheet">
+
+</head>
+<body class="light-mode">
+  <!-- Loading spinner mientras verifica autenticación -->
+  <div id="loading-container" class="landing-loading-spinner">
+    <div class="landing-spinner"></div>
+  </div>
+
+  <!-- Landing content (oculto inicialmente) -->
+  <div id="landing-container" class="landing-container" style="display: none;">
+    <!-- Header -->
+    <header class="landing-header">
+      <a href="/" class="landing-logo">🚀 XDiagrams Template</a>
+      <div class="landing-nav-buttons">
+        <a href="/login" class="cta-primary">Iniciar Sesión</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">🚀 Crea Diagramas Interactivos Seguros</h1>
+        <p class="hero-subtitle">
+          Template completo para usar XDiagrams con APIs protegidas. 
+          Autenticación robusta, rate limiting, y seguridad empresarial incluida.
+        </p>
+        <div class="cta-buttons">
+          <a href="/login" class="cta-primary">🚀 Comenzar Ahora</a>
+          <a href="#features" class="cta-secondary">📋 Ver Características</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="landing-footer-links">
+        <a href="https://sheetbest.com/" class="landing-footer-link">SheetBest</a>
+        <a href="https://netlify.com" class="landing-footer-link">Netlify</a>
+        <a href="https://auth0.com" class="landing-footer-link">Auth0</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cargar configuración de auth y sistemas modulares -->
+  <script src="/auth/assets/auth-config.js"></script>
+  <script src="/auth/assets/auth-checker.js"></script>
+  <script src="/assets/js/landing-manager.js"></script>
+
+  <script>
+    // Inicializar landing manager global
+    window.landingManager = initLandingManager();
+
+    // Inicializar cuando la página cargue
+    window.addEventListener('load', () => {
+      // Asegurar que el body tenga scroll normal
+      document.body.style.overflow = 'auto';
+      
+      // Cargar tema usando el manager
+      loadTheme();
+      
+      // Usar el sistema modularizado de verificación de autenticación
+      checkAuthForLanding();
+      
+      // Configurar timeout de seguridad usando el manager
+      setupSafetyTimeout();
+    });
+  </script>
+</body>
+</html>

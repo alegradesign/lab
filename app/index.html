@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard de aplicaciones XDiagrams">
+  <title>App - Home</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link href="/assets/vendor/xdiagrams.min.css" rel="stylesheet">
+  <link href="/assets/styles/app.css" rel="stylesheet">
+</head>
+<body class="dashboard-page loading">
+  <div id="app"></div>
+  
+  <div id="header-controls">
+    <button id="apps-btn" title="Listado de Aplicaciones">
+      <svg class="grid-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 3v7h7V3H3zm9 0v7h7V3h-7zM3 14v7h7v-7H3zm9 0v7h7v-7h-7z"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Cargar configuración de auth primero -->
+  <script src="/auth/assets/auth-config.js"></script>
+  
+  <!-- Cargar sistema de autenticación -->
+  <script src="/auth/assets/auth.js"></script>
+  <script src="/auth/assets/auth-checker.js"></script>
+  <script src="/assets/js/apps-config.js"></script>
+  <script src="/assets/js/user-menu.js"></script>
+  <script src="/assets/js/app-router.js"></script>
+  <script>
+    // Inicializar router cuando la página cargue
+    window.addEventListener('load', () => {
+      const router = new AppRouter();
+      router.init();
+    });
+  </script>
+</body>
+</html>

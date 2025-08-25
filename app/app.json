@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "id": "inspector",
+      "title": "Inspector",
+      "description": "Diagrama interactivo con las secciones de nuestro ecosistema",
+      "url": "/inspector/"
+    },
+    {
+      "id": "project-m", 
+      "title": "Project M",
+      "description": "Experimental project",
+      "url": "/project-m/"
+    }
+  ]
+}

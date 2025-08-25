@@ -1,0 +1,48 @@
+// Función de logout simplificada
+
+exports.handler = async (event, context) => {
+  const headers = {
+    'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || 'https://lab.alegra.design',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Content-Type': 'application/json'
+  };
+
+  // Manejar preflight requests (CORS)
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: ''
+    };
+  }
+
+  try {
+    // Redirigir al landing principal (los datos de sesión se limpian en el frontend)
+    const landingUrl = `${process.env.AUTH0_BASE_URL}/`;
+    
+    return {
+      statusCode: 302,
+      headers: {
+        ...headers,
+        'Location': landingUrl
+      },
+      body: ''
+    };
+
+  } catch (error) {
+    console.error('[Logout] Error:', error);
+    
+    // En caso de error, redirigir al landing principal de todas formas
+    const landingUrl = `${process.env.AUTH0_BASE_URL}/`;
+    
+    return {
+      statusCode: 302,
+      headers: {
+        ...headers,
+        'Location': landingUrl
+      },
+      body: ''
+    };
+  }
+};

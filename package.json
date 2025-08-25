@@ -1,0 +1,41 @@
+{
+  "name": "@alegradesign/lab",
+  "version": "1.0.0",
+  "description": "Experimental Lab",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "netlify deploy --prod",
+    "deploy:preview": "netlify deploy"
+  },
+  "keywords": [
+    "xdiagrams",
+    "template",
+    "diagrams",
+    "visualization",
+    "sheetbest",
+    "netlify"
+  ],
+  "author": "Sebastian Serna",
+  "license": "Private",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "auth0": "^4.2.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alegradesign/lab"
+  },
+  "bugs": {
+    "url": "https://github.com/alegradesign/lab/issues"
+  },
+  "homepage": "https://github.com/alegradesign/lab#readme"
+}

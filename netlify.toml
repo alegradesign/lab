@@ -1,0 +1,101 @@
+[build]
+  functions = "auth/functions"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Variables de entorno para Auth0 (configurar en Netlify Dashboard)
+# Ver archivo .env.example para la lista completa de variables requeridas
+
+# Redirección específica para el login de Auth0
+[[redirects]]
+  from = "/api/auth/login"
+  to = "/.netlify/functions/auth"
+  status = 200
+
+# Redirección específica para el callback de Auth0
+[[redirects]]
+  from = "/api/auth/callback"
+  to = "/.netlify/functions/auth-callback"
+  status = 200
+
+# Redirección específica para logout
+[[redirects]]
+  from = "/api/logout"
+  to = "/.netlify/functions/logout"
+  status = 200
+
+# Redirección específica para sheetbest-proxy (necesaria para XDiagrams)
+[[redirects]]
+  from = "/api/sheetbest-proxy"
+  to = "/.netlify/functions/sheetbest-proxy"
+  status = 200
+
+# Redirección para API proxy genérico (opcional)
+[[redirects]]
+  from = "/api/proxy"
+  to = "/.netlify/functions/api-proxy"
+  status = 200
+
+# Redirección para login sin extensión
+[[redirects]]
+  from = "/login"
+  to = "/auth/pages/login.html"
+  status = 200
+
+# Redirección para forbidden sin extensión
+[[redirects]]
+  from = "/forbidden"
+  to = "/auth/pages/forbidden.html"
+  status = 200
+
+# Redirección para el dashboard de aplicaciones
+[[redirects]]
+  from = "/app"
+  to = "/app/index.html"
+  status = 200
+
+# Redirección para aplicaciones específicas (project-01, project-02, etc.)
+[[redirects]]
+  from = "/project-*"
+  to = "/app/index.html"
+  status = 200
+
+# Redirección para macaw
+[[redirects]]
+  from = "/macaw"
+  to = "/app/index.html"
+  status = 200
+
+# Redirección para la ruta principal (landing inteligente)
+# El index.html maneja la lógica de autenticación internamente
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Redirección SPA para otras rutas no definidas
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de seguridad mejorados - CSP corregido para SheetBest
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.sheetbest.com https://*.sheetbest.com;"
+
+# Headers específicos para funciones con CORS restringido
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://lab.alegra.design"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Max-Age = "86400"
